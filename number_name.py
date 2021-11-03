@@ -46,9 +46,9 @@ def number_name(n, rule):
   head_separator = head_separator if head_phrase else ''
   tail_separator = tail_separator if tail_phrase else ''
   
-  result = tail_phrase + tail_separator + suffix + head_separator + head_phrase if ordering == 'tsh' \
-      else head_phrase + head_separator + tail_phrase + tail_separator + suffix if ordering == 'hts' \
-      else tail_phrase + tail_separator + head_phrase + head_separator + suffix if ordering == 'ths' \
-      else suffix + head_separator + head_phrase + tail_separator + tail_phrase if ordering == 'sht' \
-      else suffix + tail_separator + tail_phrase + head_separator + head_phrase if ordering == 'sth' \
-      else head_phrase + head_separator + suffix + tail_separator + tail_phrase  # ordering == 'hst' (default)
+  return tail_phrase + tail_separator + suffix + head_separator + head_phrase if ordering == 'tsh' \
+    else head_phrase + head_separator + tail_phrase + tail_separator + suffix if ordering == 'hts' \
+    else tail_phrase + tail_separator + head_phrase + head_separator + suffix if ordering == 'ths' \
+    else suffix + head_separator + head_phrase + tail_separator + tail_phrase if ordering == 'sht' \
+    else suffix + tail_separator + tail_phrase + head_separator + head_phrase if ordering == 'sth' \
+    else head_phrase + head_separator + suffix + tail_separator + tail_phrase  # ordering == 'hst' (default)
