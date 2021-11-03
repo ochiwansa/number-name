@@ -1,7 +1,7 @@
 class Rule:
   digit_grouping = 3
-  separator = ' '
   negative_phrase = 'minus'
+  separator = ' '
   ordering = 'hst'
   
   unit_names = ['zero', 'one', 'two', 'three', 'four',
