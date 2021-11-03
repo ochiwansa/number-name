@@ -43,6 +43,7 @@ def number_name(n, rule):
   
   head_phrase = number_name(head, rule) if head >= 10 else unit_names[head]
   tail_phrase = number_name(tail, rule) if tail or spell_zero_tail else ''
+  head_separator = head_separator if head_phrase else ''
   tail_separator = tail_separator if tail_phrase else ''
   
   result = tail_phrase + tail_separator + suffix + head_separator + head_phrase if ordering == 'tsh' \
