@@ -51,15 +51,11 @@ class Rule:
     else:
       tail_separator = ' and ' if tail < 100 else ', '
     
-    result = {
+    return {k: v for k, v in {
       'head': head,
       'tail': tail,
       'unit_names': unit_names,
-    }
-    if head_separator is not None:
-      result['head_separator'] = head_separator
-    if tail_separator is not None:
-      result['tail_separator'] = tail_separator
-    if suffix is not None:
-      result['suffix'] = suffix
-    return result
+      'head_separator': head_separator,
+      'tail_separator': tail_separator,
+      'suffix': suffix,
+    }.items() if v is not None}
