@@ -27,7 +27,7 @@ class Rule:
   
   @classmethod
   def non_regular(cls, digit, head, tail):
-    unit_names = dict()
+    head_names = dict()
     head_separator = None
     suffix = None
     
@@ -38,14 +38,14 @@ class Rule:
         tail = 0
 
     if digit < 4:
-      unit_names[1] = 'se'
+      head_names[1] = 'se'
       if head == 1:
         head_separator = ''
     
     return {k: v for k, v in {
       'head': head,
       'tail': tail,
-      'unit_names': unit_names,
+      'head_names': head_names,
       'head_separator': head_separator,
       'suffix': suffix,
     }.items() if v is not None}
