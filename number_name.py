@@ -32,8 +32,11 @@ def number_name(n, rule):
   head_separator = nr.get('head_separator', default_separator)
   tail_separator = nr.get('tail_separator', default_separator)
   
-  unit_names = nr.get('unit_names', dict())
-  unit_names = [unit_names.get(n, name)
+  head_names = nr.get('head_names', dict())
+  head_names = [head_names.get(n, name)
+                for n, name in enumerate(rule.unit_names)]
+  tail_names = nr.get('tail_names', dict())
+  tail_names = [tail_names.get(n, name)
                 for n, name in enumerate(rule.unit_names)]
   
   default_ordering = rule.ordering if hasattr(rule, 'ordering') else 'hst'
@@ -41,14 +44,23 @@ def number_name(n, rule):
   
   spell_zero_tail = nr.get('spell_zero_tail', False)
   
-  head_phrase = number_name(head, rule) if head >= 10 else unit_names[head]
-  tail_phrase = number_name(tail, rule) if tail or spell_zero_tail else ''
+  head_phrase = number_name(head, rule) if head >= 10 \
+                else head_names[head]
+  tail_phrase = number_name(tail, rule) if tail >= 10 \
+                else tail_names[tail] if tail or spell_zero_tail \
+                else ''
   head_separator = head_separator if head_phrase else ''
   tail_separator = tail_separator if tail_phrase else ''
   
-  return tail_phrase + tail_separator + suffix + head_separator + head_phrase if ordering == 'tsh' \
-    else head_phrase + head_separator + tail_phrase + tail_separator + suffix if ordering == 'hts' \
-    else tail_phrase + tail_separator + head_phrase + head_separator + suffix if ordering == 'ths' \
-    else suffix + head_separator + head_phrase + tail_separator + tail_phrase if ordering == 'sht' \
-    else suffix + tail_separator + tail_phrase + head_separator + head_phrase if ordering == 'sth' \
-    else head_phrase + head_separator + suffix + tail_separator + tail_phrase  # ordering == 'hst' (default)
+  return tail_phrase + tail_separator + suffix + head_separator + head_phrase \
+      if ordering == 'tsh' \
+    else head_phrase + head_separator + tail_phrase + tail_separator + suffix \
+      if ordering == 'hts' \
+    else tail_phrase + tail_separator + head_phrase + head_separator + suffix \
+      if ordering == 'ths' \
+    else suffix + head_separator + head_phrase + tail_separator + tail_phrase \
+      if ordering == 'sht' \
+    else suffix + tail_separator + tail_phrase + head_separator + head_phrase \
+      if ordering == 'sth' \
+    else head_phrase + head_separator + suffix + tail_separator + tail_phrase
+      #  ordering == 'hst' (default)
