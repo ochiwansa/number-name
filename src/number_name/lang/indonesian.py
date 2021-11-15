@@ -59,8 +59,7 @@ semi_regulars = [
     {
         # se...
         # e.g. sepuluh (10)
-        # e.g. sebelas (11)
-        # e.g. seribu (1000)
+        # e.g. seribu seratus sebelas (1111)
         'head': 1,
         'max': 2000,
         'rules': {
