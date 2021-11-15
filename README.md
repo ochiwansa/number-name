@@ -1,4 +1,4 @@
-# number-name
+# ochiwansa/number-name
 An attempt to create a universal "number name" library in Python, with declarative-style rule definition.
 
 Sample language rule definition (lang/indonesian.py):
