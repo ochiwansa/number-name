@@ -49,8 +49,8 @@ semi_regulars = [
         # ...belas
         # e.g. sebelas (11)
         # e.g. sembilan belas (19)
-        'min': 11,
-        'max': 19,
+        'after': 10,
+        'before': 20,
         'rules': {
             'morph': lambda head, tail, suffix: (
                 tail, 0, 'belas'),
@@ -59,9 +59,9 @@ semi_regulars = [
     {
         # se...
         # e.g. sepuluh (10)
-        # e.g. seribu seratus sebelas (1111)
+        # e.g. seribu seratus sebelas (1_111)
         'head': 1,
-        'max': 2000,
+        'before': 2_000,
         'rules': {
             'head_names': {
                 1: 'se',
@@ -71,4 +71,4 @@ semi_regulars = [
     },
 ]
 
-message_out_of_range = 'Bilangan di luar jangkauan yang ditangani'
+message_out_of_range = 'Bilangan di luar jangkauan'
