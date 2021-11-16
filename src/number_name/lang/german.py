@@ -65,7 +65,7 @@ semi_regulars = [
         # e.g. zehn (10)
         # e.g. neunzehn (19)
         'min': 10,
-        'max': 19,
+        'before': 20,
         'rules': {
             'morph': lambda head, tail, suffix: (
                 tail, 0, 'zehn'),
@@ -80,7 +80,7 @@ semi_regulars = [
         # e.g. einundfünfzig (51)
         # e.g. neunundneunzig (99)
         'min': 20,
-        'max': 99,
+        'before': 100,
         'rules': {
             'head_names': {
                 2: 'zwan',
@@ -97,7 +97,7 @@ semi_regulars = [
         # e.g. dreißig (30)
         # e.g. neununddreißig (39)
         'min': 30,
-        'max': 39,
+        'before': 40,
         'rules': {
             'morph': lambda head, tail, suffix: (
                 head, tail, 'ßig'),
@@ -107,10 +107,10 @@ semi_regulars = [
         # hundert... & tausend...
         # e.g. hundert (100)
         # e.g. hundertsechzig (160)
-        # e.g. tausend (1000)
+        # e.g. tausend (1_000)
         # e.g. tausendneunhundertneunundnenunzig (1_999)
         'min': 100,
-        'max': 2000,
+        'before': 2_000,
         'rules': {
             'head_names': {
                 1: '',
@@ -142,3 +142,5 @@ semi_regulars = [
         },
     },
 ]
+
+message_out_of_range = 'Die Nummer ist außerhalb des zulässigen Bereichs'
