@@ -63,8 +63,8 @@ semi_regulars = [
     {
         # jū, hyaku & sen
         # e.g. jū (10)
-        # e.g. sen (1000)
-        'max': 9999,
+        # e.g. sen (1_000)
+        'before': 1_0000,
         'rules': {
             'head_names': {
                 1: '',
@@ -100,3 +100,5 @@ semi_regulars = [
         },
     },
 ]
+
+message_out_of_range = 'Kazu ga han\'i-gaidesu'
