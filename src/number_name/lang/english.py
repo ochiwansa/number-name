@@ -71,7 +71,7 @@ semi_regulars = [
         # e.g. thirteen (13)
         # e.g. nineteen (19)
         'min': 13,
-        'max': 19,
+        'before': 20,
         'rules': {
             'morph': lambda head, tail, suffix: (
                 tail, 0, 'teen'),
@@ -82,7 +82,7 @@ semi_regulars = [
         # e.g. forty (40)
         # e.g. forty-nine (49)
         'min': 40,
-        'max': 49,
+        'before': 50,
         'rules': {
             'head_names': {
                 4: 'for',
@@ -108,4 +108,4 @@ semi_regulars = [
     },
 ]
 
-message_out_of_range = 'The number is out of range to handle'
+message_out_of_range = 'The number is out of range'
