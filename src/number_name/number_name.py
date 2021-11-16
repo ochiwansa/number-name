@@ -56,6 +56,8 @@ def number_name(n, lang, scale=0):
       'scale': lambda x: check_value(scale, x),
       'min': lambda x: n >= x,
       'max': lambda x: n <= x,
+      'after': lambda x: n > x,
+      'before': lambda x: n < x,
     }
 
     for sr in lang.semi_regulars:
@@ -105,5 +107,4 @@ def number_name(n, lang, scale=0):
     else (tp, ts, suffix, hs, hp) if ordering == 'tsh'
     else (tp, ts, hp, hs, suffix) if ordering == 'ths'
     else (suffix, ts, tp, hs, hp) if ordering == 'sth'
-    else (hp, hs, suffix, ts, tp) ## ordering == 'hst'
-  )
+    else (hp, hs, suffix, ts, tp)) # ordering == 'hst'
