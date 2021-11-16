@@ -72,7 +72,7 @@ semi_regulars = [
         # ...ze
         # e.g. onze (11)
         # e.g. seize (16)
-        'min': 11,
+        'after': 10,
         'max': 16,
         'rules': {
             'morph': lambda head, tail, suffix: (
@@ -134,8 +134,8 @@ semi_regulars = [
         # ... et un & ... et onze
         # e.g. vingt et un (21)
         # e.g. soixante et onze (71)
-        'min': 20,
-        'max': 80,
+        'min': 21,
+        'max': 71,
         'tail': [1, 11],
         'rules': {
             'tail_separator': ' et ',
@@ -167,7 +167,7 @@ semi_regulars = [
         # e.g. cent (100)
         # e.g. mille (1_000)
         'min': 100,
-        'max': 2000,
+        'before': 2_000,
         'rules': {
             'head_names': {
                 1: '',
@@ -175,3 +175,5 @@ semi_regulars = [
         },
     },
 ]
+
+message_out_of_range = 'Le nombre est hors de portée'
