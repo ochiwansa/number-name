@@ -30,8 +30,8 @@ def number_name(n, lang, scale=0):
     if power >= lang.digit_grouping \
       else lang.suffixes[0][power - 1]
 
-  head_names = [name for name in lang.unit_names]
-  tail_names = [name for name in lang.unit_names]
+  head_names = [_ for _ in lang.unit_names]
+  tail_names = [_ for _ in lang.unit_names]
 
   head_separator = lang.default_separator
   tail_separator = lang.default_separator
@@ -48,12 +48,12 @@ def number_name(n, lang, scale=0):
         else val == check)
 
     filters = {
-      'number': lambda x: check_value(n, x),
       'digit': lambda x: check_value(digit, x),
       'head': lambda x: check_value(head, x),
       'tail': lambda x: check_value(tail, x),
       'suffix': lambda x: check_value(suffix, x),
       'scale': lambda x: check_value(scale, x),
+      'number': lambda x: check_value(n, x),
       'min': lambda x: n >= x,
       'max': lambda x: n <= x,
       'after': lambda x: n > x,
